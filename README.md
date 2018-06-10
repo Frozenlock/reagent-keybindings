@@ -36,7 +36,7 @@ You can also automatically overwrite a key binding by mounting another component
 
 When the component is unmounted, any previous key binding is restored.
 This allows you to temporarely give the users new shortcuts without
-all the assle.
+all the hassle.
 
 ### Propagation and Default Prevention
 
