@@ -1,6 +1,6 @@
 (defproject org.clojars.frozenlock/reagent-keybindings "1.0.0"
   :description "Easy keybindings for your Reagent-based application"
-  :url "http://example.com/FIXME"
+  :url "https://github.com/Frozenlock/reagent-keybindings"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.9.0"]
