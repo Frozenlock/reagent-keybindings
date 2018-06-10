@@ -1,8 +1,8 @@
 # reagent-keybindings
 
-Easy keybindings for your Reagent application.
+Easy key bindings for your Reagent application.
 
-You might have a sweet menus, but power users will want keybindings!
+You might have a sweet menus, but power users will want keyboard shortcuts!
 
 ## Install
 Add this to your project dependencies:
@@ -22,29 +22,29 @@ Include the `keyboard-listener` component in your document:
 	  [kb/keyboard-listener]]) ;  <-------
 ```
 
-Now you can add keybindings as easily as adding a new component :
+Now you can add key bindings as easily as adding a new component :
 
 ```clj
 [kb/kb-action "ctrl-a" #(prn "Print this cool message!")]
 ```
 
-You can also automatically overwrite a keybinding by mounting another component :
+You can also automatically overwrite a key binding by mounting another component :
 
 ```clj
 [kb/kb-action "ctrl-a" #(prn "initial shortcut overwritten!")]
 ```
 
-When the component is unmounted, any previous keybinding is restored.
+When the component is unmounted, any previous key binding is restored.
 This allows you to temporarely give the users new shortcuts without
 all the assle.
 
 ### Propagation and Default Prevention
 
-All keybindings will automatically prevent the default action
+All key bindings will automatically prevent the default action
 `.preventDefault` and stop the event propagation `.stopPropagation`.
 
 
-Because keybindings often implies a more 'serious' web application, we
+Because key bindings often implies a more 'serious' web application, we
 disable the following browser shortcuts automatically (if allowed by
 the browser) :
 
