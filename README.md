@@ -54,6 +54,14 @@ the browser) :
 You can override this behavior by clearing the `preventing-default-keys` atom.
 
 
+### Key Bindings Deactivation
+
+It's possible to completely deactivate all the key bindings by
+mounting the `deactivate-kb-shortcuts` component. 
+
+A typical use is with a modal in which the user needs to type text in
+a field.
+
 ### Keyboard State
 
 You can access the keyboard state with the Reagent ratom
