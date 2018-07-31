@@ -198,7 +198,7 @@
                   0 :m0
                   1 :m1
                   2 :m2
-                  :else nil)
+                  nil)
         mods (evt-modifiers evt)]
     (swap! keyboard-state merge mods
            (when (= keycode (:keycode @keyboard-state))
@@ -207,11 +207,7 @@
 
 (defn mouse-down! [evt]
   (let [button (.-button evt)
-        keycode (condp = button
-                  0 :m0
-                  1 :m1
-                  2 :m2
-                  :else nil)
+        keycode (keyword (str "m" button))
         mods (evt-modifiers evt)
         new-state (assoc mods :keycode keycode)
         pressed-keys (into {} (filter second new-state))]
