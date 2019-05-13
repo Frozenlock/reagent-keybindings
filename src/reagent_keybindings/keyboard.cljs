@@ -228,15 +228,18 @@
   "Component that will add the necessary events listeners to the
   window."
   []
-  (r/with-let [_ (.addEventListener js/window EventType.KEYUP key-up!)
-               _ (.addEventListener js/window EventType.KEYDOWN key-down!)
-               _ (.addEventListener js/window EventType.MOUSEUP mouse-up!)
-               _ (.addEventListener js/window EventType.MOUSEDOWN mouse-down!)]
-    [:span]
-    (finally (.removeEventListener js/window EventType.KEYUP key-up!)
-             (.removeEventListener js/window EventType.KEYDOWN key-down!)
-             (.removeEventListener js/window EventType.MOUSEUP mouse-up!)
-             (.removeEventListener js/window EventType.MOUSEDOWN mouse-down!))))
+  (r/create-class
+   {:component-did-mount (fn [_]
+                           (.addEventListener js/window EventType.KEYUP key-up!)
+                           (.addEventListener js/window EventType.KEYDOWN key-down!)
+                           (.addEventListener js/window EventType.MOUSEUP mouse-up!)
+                           (.addEventListener js/window EventType.MOUSEDOWN mouse-down!))
+    :component-will-unmount (fn [_]
+                              (.removeEventListener js/window EventType.KEYUP key-up!)
+                              (.removeEventListener js/window EventType.KEYDOWN key-down!)
+                              (.removeEventListener js/window EventType.MOUSEUP mouse-up!)
+                              (.removeEventListener js/window EventType.MOUSEDOWN mouse-down!))
+    :reagent-render (fn [] [:span])}))
 
 
 (defn kb-action
