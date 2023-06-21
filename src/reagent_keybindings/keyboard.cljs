@@ -218,9 +218,9 @@
       (.stopPropagation evt))))
 
 
-
-
-
+(defn clear-keyboard-state!
+  []
+  (reset! keyboard-state {}))
 
 ;;; API
 
@@ -233,12 +233,14 @@
                            (.addEventListener js/window EventType.KEYUP key-up!)
                            (.addEventListener js/window EventType.KEYDOWN key-down!)
                            (.addEventListener js/window EventType.MOUSEUP mouse-up!)
-                           (.addEventListener js/window EventType.MOUSEDOWN mouse-down!))
+                           (.addEventListener js/window EventType.MOUSEDOWN mouse-down!)
+                           (.addEventListener js/window EventType.BLUR clear-keyboard-state!))
     :component-will-unmount (fn [_]
                               (.removeEventListener js/window EventType.KEYUP key-up!)
                               (.removeEventListener js/window EventType.KEYDOWN key-down!)
                               (.removeEventListener js/window EventType.MOUSEUP mouse-up!)
-                              (.removeEventListener js/window EventType.MOUSEDOWN mouse-down!))
+                              (.removeEventListener js/window EventType.MOUSEDOWN mouse-down!)
+                              (.removeEventListener js/window EventType.BLUR clear-keyboard-state!))
     :reagent-render (fn [] [:span])}))
 
 

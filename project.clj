@@ -1,4 +1,4 @@
-(defproject org.clojars.frozenlock/reagent-keybindings "1.0.2"
+(defproject org.clojars.frozenlock/reagent-keybindings "1.0.3"
   :description "Easy keybindings for your Reagent-based application"
   :url "https://github.com/Frozenlock/reagent-keybindings"
   :license {:name "Eclipse Public License"
