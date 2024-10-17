@@ -263,7 +263,7 @@
                               (register-keys! shortcut-string id kb-fn))
        :component-did-update (fn [_ [_ _ new-kb-fn]]
                                (when-not (= kb-fn new-kb-fn)
-                                 (register-keys! shortcut-string id kb-fn)))
+                                 (register-keys! shortcut-string id new-kb-fn)))
        :component-will-unmount (fn [_]
                                  (deregister-keys! shortcut-string id))
        :reagent-render (fn [_] [:span])}))))
