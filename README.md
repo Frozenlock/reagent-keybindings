@@ -7,7 +7,7 @@ You might have a sweet menus, but power users will want keyboard shortcuts!
 ## Install
 Add this to your project dependencies:
 
-[![Clojars Project](http://clojars.org/org.clojars.frozenlock/reagent-keybindings/latest-version.svg)](http://clojars.org/org.clojars.frozenlock/reagent-keybindings)
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.frozenlock/reagent-keybindings.svg)](https://clojars.org/org.clojars.frozenlock/reagent-keybindings)
 
 
 ## Usage
