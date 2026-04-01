@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## 1.0.5 - 2026-04-01
+Only preventDefault when action returns truthy. This allows actions to
+opt out of preventing default browser behavior (e.g. native clipboard
+copy when text is selected).
+
 ## 1.0.4 - 2024-10-23
 Correctly register the updated function when component updates.
 

@@ -40,13 +40,24 @@ all the hassle.
 
 ### Propagation and Default Prevention
 
-All key bindings will automatically prevent the default action
-`.preventDefault` and stop the event propagation `.stopPropagation`.
+Key binding actions control whether the browser's default behavior is
+suppressed: if the action function returns a **truthy** value,
+`.preventDefault` is called; if it returns `nil` or `false`, the
+default browser action is allowed to proceed.
 
+This lets you conditionally opt out. For example, to let `ctrl-c`
+fall through to native clipboard copy when text is selected:
+
+```clj
+[kb/kb-action "ctrl-c" (fn []
+                          (if (has-text-selection?)
+                            nil ;; let browser handle it
+                            (do (copy-objects!) :handled)))]
+```
 
 Because key bindings often implies a more 'serious' web application, we
 disable the following browser shortcuts automatically (if allowed by
-the browser) :
+the browser), regardless of action return values:
 
 - `ctrl-r` We don't want the user to reload by accident;
 - `ctrl-s` Don't save the HTML file.
